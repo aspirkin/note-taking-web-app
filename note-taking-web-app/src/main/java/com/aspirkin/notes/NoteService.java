@@ -15,6 +15,10 @@ public class NoteService {
 		return noteRepository.findAll();
 	}
 	
+	public List<Note> getNotesContainingText(String searchString) {
+		return noteRepository.findByTitleContainingIgnoreCaseOrBodyContainingIgnoreCase(searchString, searchString);
+	}
+	
 	public void saveNote(Note note) {
 		if (note.getTitle()!=null && !note.getTitle().equals("") ||
 			note.getBody()!=null && !note.getBody().equals("")) {

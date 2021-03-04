@@ -14,7 +14,18 @@
 	<div class="container my-2">
 		<h1>Список заметок</h1>
 		<hr>
-		<a th:href = "@{/newNote}" class="btn btn-primary mb-3">Добавить новую</a>
+		
+		<a th:href = "@{/newNote}" class="btn btn-lg btn-primary btn-block mb-3">Добавить новую</a>
+		
+		<form action="/">
+			<div class="input-group mb-3">
+				<input type="text" class="form-control" name="search" placeholder="Поиск">
+				<div class="input-group-append">
+					<button class="btn btn-success" type="submit">Искать!</button>
+				</div>
+			</div>
+		</form> 
+		
 		<table border="1" class="table table-striped table-responsive-md">
 			<thead>
 				<tr>

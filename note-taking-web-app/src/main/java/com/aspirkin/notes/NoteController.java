@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class NoteController {
@@ -15,8 +16,8 @@ public class NoteController {
 	private NoteService noteService;
 	
 	@GetMapping("/")
-	public String showNotesList(Model model) {
-		model.addAttribute("notesList", noteService.getAllNotes());
+	public String showNotesList(Model model, @RequestParam(defaultValue = "") String search) {
+		model.addAttribute("notesList", noteService.getNotesContainingText(search));
 		return "notes_list";
 	}
 	
