@@ -26,7 +26,7 @@
 				<tr th:each="note : ${notesList}">
 					<td th:text="(${note.title} and ${note.title}!='') ? ${note.title} : ${note.body}")>
 					<td>
-						<a th:href="@{/}" class="btn btn-danger">Удалить</a>
+						<a th:href="@{/deleteNote/{id}(id=${note.id})}" class="btn btn-danger">Удалить</a>
 					</td>
 				</tr>
 			</tbody>
