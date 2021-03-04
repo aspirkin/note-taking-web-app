@@ -14,4 +14,11 @@ public class NoteService {
 	public List<Note> getAllNotes() {
 		return noteRepository.findAll();
 	}
+	
+	public void saveNote(Note note) {
+		if (note.getTitle()!=null && !note.getTitle().equals("") ||
+			note.getBody()!=null && !note.getBody().equals("")) {
+			noteRepository.save(note);
+		}
+	}
 }
