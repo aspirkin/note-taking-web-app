@@ -25,6 +25,7 @@ public class NoteService {
 			note.getBody()!=null && !note.getBody().equals("")) {
 			noteRepository.save(note);
 		}
+		//Handle incorrect note here
 	}
 	
 	public void deleteNoteById(long id) {

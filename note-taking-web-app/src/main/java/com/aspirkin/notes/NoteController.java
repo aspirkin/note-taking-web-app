@@ -1,8 +1,11 @@
 package com.aspirkin.notes;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,21 +30,26 @@ public class NoteController {
 		model.addAttribute("note", note);
 		return "new_note";
 	}
-	
-	@PostMapping("/saveNote")
-	public String saveStudent(@ModelAttribute("note") Note note) {
-		noteService.saveNote(note);
-		return "redirect:/";
-	}
-	
+
 	@GetMapping("/deleteNote/{id}")
 	public String deleteNote(@PathVariable(value="id") int id) {
 		noteService.deleteNoteById(id);
 		return "redirect:/";
 	}
 	
+	@PostMapping("/saveNote")
+	public String saveStudent(@Valid @ModelAttribute("note") Note note, Errors errors) {
+		if (errors.hasErrors()) {
+			return "view_note";
+		}
+		else {
+			noteService.saveNote(note);
+			return "redirect:/";
+		}
+	}
+	
 	@GetMapping("/viewNote/{id}")
-	public String showEditNotePage(@PathVariable(value="id") int id, Model model) {
+	public String showEditNotePage(@Valid @PathVariable(value="id") int id, Model model, Errors errors) {
 		try {
 			Note note = noteService.getNoteById(id);
 			model.addAttribute("note", note);

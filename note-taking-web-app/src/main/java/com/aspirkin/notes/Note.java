@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name="notes")
@@ -12,7 +13,9 @@ public class Note {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	@Length(max=127, message="Заголовок слишком длинный. Максимальная длина: 127 символов")
 	private String title;
+	@Length(max=1023, message="Заметка слишком длинная. Максимальная длина: 1023 символа")
 	private String body;
 	
 	public long getId() {

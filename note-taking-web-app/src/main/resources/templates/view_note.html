@@ -17,8 +17,9 @@
 		<form action="#" th:action="@{/saveNote}" th:object="${note}" method="post">
 			<input type="hidden" th:field="*{id}">
 			<input type="text" th:field="*{title}" class="form-control mb-4">
+			<p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"	class="alert alert-danger"></p>
 			<textarea th:field="*{body}" class="form-control mb-4" rows="7"></textarea>
-			
+			<p th:if="${#fields.hasErrors('body')}" th:errors="*{body}"	class="alert alert-danger"></p>
 			<button type="submit" class="btn btn-success col-2">Сохранить</button>
 			<a th:href="@{/}" class="btn btn-danger col-2">Отмена</a>
 		</form>
