@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Просмотр заметки</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<h1>Просмотр заметки</h1>
+		<hr>
+		<form action="#" th:action="@{/saveNote}" th:object="${note}" method="post">
+			<input type="hidden" th:field="*{id}">
+			<input type="text" th:field="*{title}" class="form-control mb-4">
+			<textarea th:field="*{body}" class="form-control mb-4" rows="7"></textarea>
+			
+			<button type="submit" class="btn btn-success col-2">Сохранить</button>
+			<a th:href="@{/}" class="btn btn-danger col-2">Отмена</a>
+		</form>
+		<hr>
+	</div>
+</body>
+</html>

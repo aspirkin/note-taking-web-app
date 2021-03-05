@@ -39,4 +39,16 @@ public class NoteController {
 		noteService.deleteNoteById(id);
 		return "redirect:/";
 	}
+	
+	@GetMapping("/viewNote/{id}")
+	public String showEditNotePage(@PathVariable(value="id") int id, Model model) {
+		try {
+			Note note = noteService.getNoteById(id);
+			model.addAttribute("note", note);
+			return "view_note";
+		}
+		catch(Exception e) {
+			return "note_not_found";
+		}
+	}
 }

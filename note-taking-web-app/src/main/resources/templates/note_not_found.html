@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Не найдено</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<h1>Ошибка! Такой заметки не существует.</h1>
+		<hr>
+		<br>
+		<p th:text="'Заметка с id = ' + ${id} + ' не найдена в базе данных. Возможно, она была удалена.'"></p>
+		<br>
+		<a th:href = "@{/}" class="btn btn-lg btn-primary btn-block mb-3">Вернуться к списку заметок</a>
+		<hr>
+	</div>
+</body>
+</html>
