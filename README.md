@@ -21,7 +21,7 @@
 ● Заметка должна иметь хотя бы одно из двух полей содержащим текст;<br>
 
 Использованы:<br>
-Spring (Boot, MVC, Data JPA), Thymeleaf, PostgreSQL.
+Spring (Boot, MVC, Data JPA), Thymeleaf, Bootstrap, PostgreSQL.
 
 Реализовано:<br>
 ● Инициализация таблицы БД (база указывается в application.properties);<br>
