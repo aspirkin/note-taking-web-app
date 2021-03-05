@@ -49,7 +49,7 @@ public class NoteController {
 	}
 	
 	@GetMapping("/viewNote/{id}")
-	public String showEditNotePage(@Valid @PathVariable(value="id") int id, Model model, Errors errors) {
+	public String showEditNotePage(@PathVariable(value="id") int id, Model model) {
 		try {
 			Note note = noteService.getNoteById(id);
 			model.addAttribute("note", note);

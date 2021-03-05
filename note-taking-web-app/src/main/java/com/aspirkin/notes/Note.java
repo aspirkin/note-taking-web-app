@@ -13,9 +13,9 @@ public class Note {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	@Length(max=127, message="Заголовок слишком длинный. Максимальная длина: 127 символов")
+	@Length(max=127, message="Заголовок слишком длинный. Максимальная длина: 127 символов, введено ${validatedValue.length()}")
 	private String title;
-	@Length(max=1023, message="Заметка слишком длинная. Максимальная длина: 1023 символа")
+	@Length(max=1023, message="Заметка слишком длинная. Максимальная длина: 1023 символа, введено ${validatedValue.length()}")
 	private String body;
 	
 	public long getId() {
