@@ -38,7 +38,7 @@ public class NoteController {
 	}
 	
 	@PostMapping("/saveNote")
-	public String saveStudent(@Valid @ModelAttribute("note") Note note, Errors errors) {
+	public String saveNote(@Valid @ModelAttribute("note") Note note, Errors errors) {
 		if (errors.hasErrors()) {
 			return "view_note";
 		}

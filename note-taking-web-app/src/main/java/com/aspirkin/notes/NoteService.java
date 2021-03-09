@@ -21,11 +21,7 @@ public class NoteService {
 	}
 	
 	public void saveNote(Note note) {
-		if (note.getTitle()!=null && !note.getTitle().equals("") ||
-			note.getBody()!=null && !note.getBody().equals("")) {
-			noteRepository.save(note);
-		}
-		//Handle incorrect note here
+		noteRepository.save(note);
 	}
 	
 	public void deleteNoteById(long id) {
